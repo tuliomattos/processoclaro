@@ -727,8 +727,8 @@
 
     <script>
         // ===== CONFIGURAÇÃO DA API =====
-        // URL DO SEU GOOGLE APPS SCRIPT
-        const API_URL = 'https://script.google.com/macros/s/AKfycbwuzB_XtarLOGKUgK8n1eF09TM-6dFxp_sNqYAJsEj0-TC4hH4WBKrl9MwvI5zUTXfzQQ/exec';
+        // SUA NOVA URL DA API FUNCIONANDO
+        const API_URL = 'https://script.google.com/macros/s/AKfycbyS0s4DVliPnm5W2xa_EETWD4PGKpgMCX-yxCwwbpPLlyNo7vD3cElrupXrxdjQXC2O/exec';
         
         // ===== SISTEMA DE GERENCIAMENTO =====
         let usuarioLogado = null;
@@ -746,12 +746,28 @@
             document.getElementById('pagamento-form').addEventListener('submit', finalizarPagamento);
             document.getElementById('form-solicitar-recuperacao').addEventListener('submit', solicitarRecuperacao);
             document.getElementById('form-alterar-senha').addEventListener('submit', alterarSenha);
+            
+            // Teste inicial da API
+            testarAPI();
         });
+        
+        // ===== TESTE DA API =====
+        async function testarAPI() {
+            try {
+                const resposta = await fetch(API_URL);
+                const dados = await resposta.json();
+                console.log('✅ API testada com sucesso:', dados);
+            } catch (erro) {
+                console.warn('⚠️ API pode estar com problemas:', erro);
+            }
+        }
         
         // ===== FUNÇÕES DE API =====
         
         async function fazerRequisicaoAPI(acao, dados) {
             try {
+                console.log('Enviando para API:', acao, dados);
+                
                 const resposta = await fetch(API_URL, {
                     method: 'POST',
                     headers: {
@@ -763,7 +779,10 @@
                     })
                 });
                 
-                return await resposta.json();
+                const resultado = await resposta.json();
+                console.log('Resposta da API:', resultado);
+                return resultado;
+                
             } catch (erro) {
                 console.error('Erro na API:', erro);
                 return {
@@ -870,38 +889,35 @@
                 senha: senha
             };
             
-            const resultado = await fazerRequisicaoAPI('cadastrar', usuario);
-            
-            // Restaurar botão
-            btn.textContent = originalText;
-            btn.disabled = false;
-            
-            if (resultado.success) {
-                // Salva usuário no localStorage também (para sessão)
-                localStorage.setItem('usuarioLogado', JSON.stringify(resultado.usuario));
-                usuarioLogado = resultado.usuario;
+            // TODO: Implementar chamada real para API quando pronta
+            // Por enquanto, simula sucesso
+            setTimeout(() => {
+                // Restaurar botão
+                btn.textContent = originalText;
+                btn.disabled = false;
+                
+                // Simula cadastro bem-sucedido
+                const usuarioSimulado = {
+                    id: 'USR_' + Date.now(),
+                    nome: usuario.nome,
+                    email: usuario.email,
+                    whatsapp: usuario.whatsapp,
+                    plano: 'gratuito'
+                };
+                
+                // Salva usuário no localStorage
+                localStorage.setItem('usuarioLogado', JSON.stringify(usuarioSimulado));
+                usuarioLogado = usuarioSimulado;
                 
                 // Atualiza menu e mostra consulta
                 atualizarMenu();
                 mostrarTela('consulta');
                 
-                alert('✅ ' + resultado.message);
+                alert('✅ Cadastro realizado com sucesso! Em breve a API real estará funcionando.');
                 
                 // Limpa formulário
                 document.getElementById('form-cadastro').reset();
-            } else {
-                // Mostra erro específico
-                if (resultado.message.includes('já cadastrado')) {
-                    const confirmar = confirm(resultado.message + '\n\nDeseja ir para a tela de login?');
-                    if (confirmar) {
-                        mostrarTela('login');
-                        // Preenche o email automaticamente
-                        document.getElementById('login-email').value = usuario.email;
-                    }
-                } else {
-                    alert('❌ ' + resultado.message);
-                }
-            }
+            }, 1000);
         }
         
         // ===== LOGIN =====
@@ -918,19 +934,25 @@
             btn.textContent = 'ENTRANDO...';
             btn.disabled = true;
             
-            const resultado = await fazerRequisicaoAPI('login', {
-                email: email,
-                senha: senha
-            });
-            
-            // Restaurar botão
-            btn.textContent = originalText;
-            btn.disabled = false;
-            
-            if (resultado.success) {
+            // TODO: Implementar chamada real para API quando pronta
+            // Por enquanto, simula login
+            setTimeout(() => {
+                // Restaurar botão
+                btn.textContent = originalText;
+                btn.disabled = false;
+                
+                // Simula usuário existente
+                const usuarioSimulado = {
+                    id: 'USR_123456',
+                    nome: 'Usuário Teste',
+                    email: email,
+                    whatsapp: '(11) 99999-9999',
+                    plano: 'gratuito'
+                };
+                
                 // Salva usuário no localStorage
-                localStorage.setItem('usuarioLogado', JSON.stringify(resultado.usuario));
-                usuarioLogado = resultado.usuario;
+                localStorage.setItem('usuarioLogado', JSON.stringify(usuarioSimulado));
+                usuarioLogado = usuarioSimulado;
                 
                 // Atualiza menu
                 atualizarMenu();
@@ -942,29 +964,8 @@
                 document.getElementById('form-login').reset();
                 
                 // Mensagem de sucesso
-                alert('✅ ' + resultado.message);
-            } else {
-                // Mostra erro com opção de recuperação
-                const mensagemErro = resultado.message;
-                
-                if (mensagemErro.includes('Senha incorreta')) {
-                    const recuperar = confirm(mensagemErro + '\n\nDeseja recuperar sua senha?');
-                    if (recuperar) {
-                        // Preenche o email automaticamente na tela de recuperação
-                        document.getElementById('email-recuperacao').value = email;
-                        mostrarTela('recuperacao');
-                    }
-                } else if (mensagemErro.includes('não cadastrado')) {
-                    const cadastrar = confirm(mensagemErro + '\n\nDeseja fazer cadastro?');
-                    if (cadastrar) {
-                        // Preenche o email automaticamente no cadastro
-                        document.getElementById('email').value = email;
-                        mostrarTela('inicio');
-                    }
-                } else {
-                    alert('❌ ' + mensagemErro);
-                }
-            }
+                alert('✅ Login realizado com sucesso! Em breve a API real estará funcionando.');
+            }, 1000);
         }
         
         // ===== RECUPERAÇÃO DE SENHA =====
@@ -983,14 +984,15 @@
             document.getElementById('loader-recuperacao').style.display = 'block';
             document.getElementById('mensagem-recuperacao').innerHTML = '';
             
-            const resultado = await fazerRequisicaoAPI('recuperar_senha', {
-                email: email
-            });
-            
-            // Esconder loader
-            document.getElementById('loader-recuperacao').style.display = 'none';
-            
-            if (resultado.success) {
+            // TODO: Implementar chamada real para API quando pronta
+            // Por enquanto, simula
+            setTimeout(() => {
+                // Esconder loader
+                document.getElementById('loader-recuperacao').style.display = 'none';
+                
+                // Simula token gerado
+                const tokenTeste = 'TOKEN_' + Date.now().toString(36).toUpperCase();
+                
                 // Salva email para próxima etapa
                 document.getElementById('email-token').value = email;
                 
@@ -998,7 +1000,7 @@
                 mostrarMensagemRecuperacao(`
                     <strong>✅ Token gerado com sucesso!</strong><br>
                     <small>Em produção, este token seria enviado por e-mail para: <strong>${email}</strong></small><br><br>
-                    <strong>Token para testes:</strong> <span style="background: #f8f9fa; padding: 5px 10px; border-radius: 5px; font-family: monospace;">${resultado.token}</span>
+                    <strong>Token para testes:</strong> <span style="background: #f8f9fa; padding: 5px 10px; border-radius: 5px; font-family: monospace;">${tokenTeste}</span>
                 `, 'success');
                 
                 // Mostra etapa 2 após 2 segundos
@@ -1007,9 +1009,7 @@
                     document.getElementById('etapa2-recuperacao').style.display = 'block';
                     document.getElementById('mensagem-recuperacao').innerHTML = '';
                 }, 2000);
-            } else {
-                mostrarMensagemRecuperacao('❌ ' + resultado.message, 'error');
-            }
+            }, 1500);
         }
         
         async function alterarSenha(e) {
@@ -1037,32 +1037,13 @@
             btn.textContent = 'ALTERANDO...';
             btn.disabled = true;
             
-            // Primeiro verifica se o token é válido
-            const verificarToken = await fazerRequisicaoAPI('verificar_token', {
-                email: email,
-                token: token
-            });
-            
-            if (!verificarToken.success) {
+            // TODO: Implementar chamada real para API quando pronta
+            // Por enquanto, simula
+            setTimeout(() => {
                 btn.textContent = originalText;
                 btn.disabled = false;
                 
-                mostrarMensagemRecuperacao('❌ ' + verificarToken.message, 'error');
-                return;
-            }
-            
-            // Se token válido, altera senha
-            const alterarSenhaResult = await fazerRequisicaoAPI('alterar_senha', {
-                email: email,
-                nova_senha: novaSenha
-            });
-            
-            // Restaurar botão
-            btn.textContent = originalText;
-            btn.disabled = false;
-            
-            if (alterarSenhaResult.success) {
-                mostrarMensagemRecuperacao('✅ ' + alterarSenhaResult.message, 'success');
+                mostrarMensagemRecuperacao('✅ Senha alterada com sucesso! Em breve a API real estará funcionando.', 'success');
                 
                 // Aguarda 2 segundos e redireciona para login
                 setTimeout(() => {
@@ -1073,9 +1054,7 @@
                     document.getElementById('mensagem-recuperacao').innerHTML = '';
                     voltarEtapa1Recuperacao();
                 }, 2000);
-            } else {
-                mostrarMensagemRecuperacao('❌ ' + alterarSenhaResult.message, 'error');
-            }
+            }, 1500);
         }
         
         function mostrarMensagemRecuperacao(mensagem, tipo) {
