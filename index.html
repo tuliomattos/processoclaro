@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Processo Claro - Sistema Completo</title>
+    <title>Processo Claro - Consultas Jurídicas por PIX</title>
     <style>
-        /* ===== ESTILO COMPLETO ===== */
+        /* RESET E ESTILOS GERAIS */
         * {
             margin: 0;
             padding: 0;
@@ -13,23 +13,10 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
-        :root {
-            --azul-principal: #1a3c8b;
-            --azul-claro: #4dabf7;
-            --azul-bg: #e7f5ff;
-            --cinza-claro: #f8f9fa;
-            --cinza: #495057;
-            --verde: #40c057;
-            --branco: #ffffff;
-            --sombra: 0 5px 15px rgba(0,0,0,0.08);
-            --radius: 10px;
-        }
-        
         body {
-            background-color: var(--cinza-claro);
-            color: var(--cinza);
+            background-color: #f8f9fa;
+            color: #333;
             line-height: 1.6;
-            min-height: 100vh;
         }
         
         .container {
@@ -39,10 +26,10 @@
         }
         
         /* HEADER */
-        .header {
-            background: var(--azul-principal);
-            color: var(--branco);
-            padding: 1rem 0;
+        header {
+            background-color: #1a3c8b;
+            color: white;
+            padding: 1.2rem 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
@@ -53,190 +40,334 @@
         }
         
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--branco);
-            text-decoration: none;
+            font-size: 2.2rem; /* AUMENTADO DE 1.8rem PARA 2.2rem */
+            font-weight: 800;
+            letter-spacing: 0.5px;
         }
         
         .logo span {
-            color: var(--azul-claro);
+            color: #4dabf7;
         }
         
-        .nav a {
-            color: var(--branco);
+        nav a {
+            color: white;
             text-decoration: none;
             margin-left: 1.5rem;
             font-weight: 500;
+            font-size: 1.05rem;
         }
         
         /* BOTÕES */
         .btn {
             display: inline-block;
-            background: var(--azul-claro);
-            color: var(--branco);
+            background-color: #4dabf7;
+            color: white;
             padding: 12px 24px;
-            border: none;
-            border-radius: var(--radius);
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
+            border: none;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: background-color 0.3s;
             text-align: center;
         }
         
         .btn:hover {
-            background: #339af0;
-        }
-        
-        .btn-block {
-            display: block;
-            width: 100%;
-        }
-        
-        .btn-success {
-            background: var(--verde);
-        }
-        
-        .btn-success:hover {
-            background: #37b24d;
+            background-color: #339af0;
         }
         
         .btn-secondary {
-            background: var(--branco);
-            color: var(--azul-principal);
-            border: 2px solid var(--azul-principal);
+            background-color: #f8f9fa;
+            color: #1a3c8b;
+            border: 2px solid #1a3c8b;
         }
         
         .btn-secondary:hover {
-            background: var(--cinza-claro);
+            background-color: #e9ecef;
         }
         
-        /* FORMULÁRIOS */
-        .form-container {
-            background: var(--branco);
-            padding: 2rem;
-            border-radius: var(--radius);
-            box-shadow: var(--sombra);
-            max-width: 500px;
-            margin: 2rem auto;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--cinza);
-        }
-        
-        input, select, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: var(--radius);
-            font-size: 1rem;
-        }
-        
-        input:focus {
-            outline: none;
-            border-color: var(--azul-claro);
-            box-shadow: 0 0 0 3px rgba(77, 171, 247, 0.1);
-        }
-        
-        /* HERO */
+        /* HERO SECTION */
         .hero {
             padding: 4rem 0;
             text-align: center;
-            background: linear-gradient(135deg, var(--azul-bg) 0%, #f3e5f5 100%);
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
         }
         
         .hero h1 {
-            font-size: 2.2rem;
-            color: var(--azul-principal);
+            font-size: 2.8rem; /* Aumentado um pouco */
             margin-bottom: 1rem;
+            color: #1a3c8b;
+            line-height: 1.3;
         }
         
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto 2rem;
-            color: var(--cinza);
+            color: #495057;
         }
         
-        /* CARDS */
-        .card {
-            background: var(--branco);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            box-shadow: var(--sombra);
-            margin-bottom: 1.5rem;
+        /* SEÇÕES */
+        .section {
+            padding: 3rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #1a3c8b;
+            font-size: 2rem;
+        }
+        
+        /* PLANOS */
+        .plans {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
         }
         
         .plan-card {
-            border: 2px solid var(--cinza-claro);
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            width: 100%;
+            max-width: 320px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border: 2px solid #e9ecef;
             transition: transform 0.3s;
         }
         
         .plan-card:hover {
             transform: translateY(-5px);
+            border-color: #4dabf7;
         }
         
         .plan-card.featured {
-            border-color: var(--azul-claro);
+            border-color: #4dabf7;
+            transform: scale(1.05);
         }
         
-        /* PROCESS STEPS */
-        .process-step {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
+        .plan-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+        
+        .plan-name {
+            font-size: 1.5rem;
+            color: #1a3c8b;
+            margin-bottom: 0.5rem;
+        }
+        
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4dabf7;
+            margin-bottom: 1rem;
+        }
+        
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .plan-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f1f3f5;
+        }
+        
+        .plan-features li:before {
+            content: "✓";
+            color: #40c057;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        /* PÁGINA DE PAGAMENTO */
+        .payment-page {
+            display: none;
+            max-width: 600px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .payment-header {
+            text-align: center;
+            margin-bottom: 2rem;
             padding-bottom: 1.5rem;
-            border-bottom: 1px solid #dee2e6;
+            border-bottom: 2px solid #f1f5f9;
         }
         
-        .step-icon {
-            background: var(--azul-claro);
-            color: var(--branco);
-            width: 40px;
-            height: 40px;
+        .qrcode-container {
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            border: 2px dashed #4dabf7;
+            text-align: center;
+        }
+        
+        .qrcode {
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 1rem;
+        }
+        
+        .qrcode img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .pix-code {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-family: monospace;
+            word-break: break-all;
+            border: 1px solid #dee2e6;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #25D366;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: background-color 0.3s;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #1da851;
+        }
+        
+        .nubank-link {
+            display: block;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: linear-gradient(135deg, #8A05BE 0%, #7A4B8B 100%);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s;
+            text-align: center;
+        }
+        
+        .nubank-link:hover {
+            transform: translateY(-2px);
+            color: white;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            color: #4dabf7;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #4dabf7;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .back-btn:hover {
+            background: #4dabf7;
+            color: white;
+        }
+        
+        .instructions {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: #1a3c8b;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .footer-logo {
+            font-size: 2rem; /* Aumentado também no footer */
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo span {
+            color: #4dabf7;
+        }
+        
+        .disclaimer {
+            font-size: 0.9rem;
+            color: #adb5bd;
+            max-width: 800px;
+            margin: 1rem auto;
+        }
+        
+        /* ETAPAS */
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .step {
+            text-align: center;
+            max-width: 200px;
+        }
+        
+        .step-number {
+            background: #4dabf7;
+            color: white;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 1rem;
+            font-size: 1.5rem;
             font-weight: bold;
+            margin: 0 auto 1rem;
         }
         
-        /* ALERTAS */
-        .alert {
-            padding: 1rem;
-            border-radius: var(--radius);
-            margin-bottom: 1.5rem;
+        /* CONTROLE DE VISIBILIDADE */
+        #main-content {
+            display: block;
         }
         
-        .alert-info {
-            background: var(--azul-bg);
-            border-left: 4px solid var(--azul-claro);
-            color: var(--azul-principal);
-        }
-        
-        .alert-success {
-            background: #d3f9d8;
-            border-left: 4px solid var(--verde);
-            color: #2b8a3e;
-        }
-        
-        .alert-warning {
-            background: #fff3bf;
-            border-left: 4px solid #fcc419;
-            color: #e67700;
-        }
-        
-        /* RESPONSIVO */
+        /* RESPONSIVIDADE */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -244,1098 +375,338 @@
                 gap: 1rem;
             }
             
-            .nav a {
-                margin: 0 0.5rem;
+            .logo {
+                font-size: 1.8rem; /* Ajuste para mobile */
+            }
+            
+            .footer-logo {
+                font-size: 1.8rem;
+            }
+            
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            nav a {
+                margin: 0;
+                font-size: 0.95rem;
             }
             
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
-        }
-        
-        /* TELAS OCULTAS INICIALMENTE */
-        .tela {
-            display: none;
-        }
-        
-        .tela.ativa {
-            display: block;
-        }
-        
-        /* PLANOS */
-        .planos-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-        
-        .plan-name {
-            font-size: 1.5rem;
-            color: var(--azul-principal);
-            margin-bottom: 0.5rem;
-        }
-        
-        .plan-price {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--azul-claro);
-            margin-bottom: 1rem;
-        }
-        
-        /* NOVOS ESTILOS PARA RECUPERAÇÃO DE SENHA */
-        .loader {
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #4dabf7;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-            display: none;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .error-message {
-            background-color: #ffeaea;
-            color: #d63031;
-            padding: 10px;
-            border-radius: 5px;
-            margin: 10px 0;
-            border-left: 4px solid #d63031;
-        }
-        
-        .success-message {
-            background-color: #d4edda;
-            color: #155724;
-            padding: 10px;
-            border-radius: 5px;
-            margin: 10px 0;
-            border-left: 4px solid #28a745;
-        }
-        
-        /* ESTILOS PARA MENSAGENS NO LOGIN */
-        .login-message {
-            text-align: center;
-            margin: 15px 0;
-            font-size: 0.9rem;
-        }
-        
-        .login-message a {
-            color: #4dabf7;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .login-message a:hover {
-            text-decoration: underline;
+            
+            .plan-card.featured {
+                transform: none;
+            }
+            
+            .plan-card.featured:hover {
+                transform: translateY(-5px);
+            }
+            
+            .steps {
+                gap: 2rem;
+            }
+            
+            .payment-page {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+            
+            .pix-code {
+                font-size: 0.75rem;
+            }
+            
+            .qrcode {
+                width: 180px;
+                height: 180px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- HEADER FIXO -->
-    <header class="header">
+    <!-- HEADER -->
+    <header>
         <div class="container header-content">
-            <a href="#" class="logo" onclick="mostrarTela('inicio')">Processo<span>Claro</span></a>
-            <nav class="nav" id="nav-menu">
-                <!-- Menu será preenchido por JS -->
+            <div class="logo">Processo<span>Claro</span></div>
+            <nav>
+                <a href="#" onclick="showMainPage()">Início</a>
+                <a href="#" onclick="showMainPage()">Consultas</a>
+                <a href="#" onclick="showMainPage()">Como Funciona</a>
+                <a href="#" onclick="showMainPage()">Contato</a>
             </nav>
         </div>
     </header>
 
-    <main class="container">
-        <!-- ===== TELA 1: INÍCIO/CADASTRO ===== -->
-        <section id="tela-inicio" class="tela ativa">
-            <div class="hero">
-                <h1>Descubra o status do seu processo judicial em 2 minutos</h1>
-                <p>Consulta gratuita • Explicação simples • Sem juridiquês</p>
+    <!-- CONTEÚDO PRINCIPAL (PLANOS) -->
+    <div id="main-content">
+        <!-- HERO SECTION -->
+        <section class="hero" id="home">
+            <div class="container">
+                <h1>Explicamos o seu processo sem juridiquês</h1> <!-- ALTERADO -->
+                <p>Consulte o andamento do seu processo e receba explicações em linguagem simples. <strong>Pagamento único por PIX</strong> - sem mensalidade!</p>
+                <a href="#planos" class="btn" onclick="smoothScroll('#planos')">Ver Opções de Consulta</a>
             </div>
+        </section>
 
-            <div class="form-container">
-                <h2 style="text-align: center; color: #1a3c8b; margin-bottom: 1.5rem;">Faça seu cadastro grátis</h2>
-                
-                <form id="form-cadastro">
-                    <div class="form-group">
-                        <label for="nome">Nome Completo *</label>
-                        <input type="text" id="nome" placeholder="Seu nome completo" required>
+        <!-- COMO FUNCIONA -->
+        <section class="section" id="como-funciona">
+            <div class="container">
+                <h2 class="section-title">Como Funciona - É Simples!</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Escolha a Consulta</h3>
+                        <p>Selecione o tipo de explicação que você precisa</p>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="email">E-mail *</label>
-                        <input type="email" id="email" placeholder="seu@email.com" required>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Pague via PIX</h3>
+                        <p>Faça o pagamento único com QR Code ou código PIX</p>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="whatsapp">WhatsApp (com DDD) *</label>
-                        <input type="tel" id="whatsapp" placeholder="(11) 99999-9999" required>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Envie Comprovante</h3>
+                        <p>Encaminhe o comprovante pelo WhatsApp</p>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="senha">Crie uma Senha *</label>
-                        <input type="password" id="senha" placeholder="Mínimo 6 caracteres" required minlength="6">
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Receba a Resposta</h3>
+                        <p>Obtenha sua explicação detalhada em até 48h</p>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="confirmar-senha-cadastro">Confirmar Senha *</label>
-                        <input type="password" id="confirmar-senha-cadastro" placeholder="Digite novamente" required minlength="6">
-                    </div>
-                    
-                    <button type="submit" class="btn btn-block">FAZER CADASTRO E CONSULTAR GRÁTIS</button>
-                    
-                    <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: #666;">
-                        Ao continuar, você concorda com nossos Termos.
-                    </p>
-                </form>
-                
-                <div style="text-align: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #eee;">
-                    <p>Já tem cadastro? <a href="#" onclick="mostrarTela('login')" style="color: #4dabf7; font-weight: 600;">Faça login</a></p>
                 </div>
             </div>
+        </section>
 
-            <div class="alert alert-info" style="max-width: 800px; margin: 2rem auto;">
-                <h3 style="margin-bottom: 0.5rem;">Como funciona:</h3>
-                <ol style="padding-left: 1.5rem;">
-                    <li>Faça cadastro rápido (30 segundos)</li>
-                    <li>Acesse a consulta gratuita</li>
-                    <li>Digite o número do processo</li>
-                    <li>Receba o status em linguagem simples</li>
-                    <li>Para análise completa, assine um plano</li>
-                </ol>
-                <p style="margin-top: 1rem; font-size: 0.9rem;">
-                    <strong>⚠️ Importante:</strong> Serviço informativo. Não substituímos advogado.
+        <!-- PLANOS (CONSULTAS) -->
+        <section class="section" id="planos">
+            <div class="container">
+                <h2 class="section-title">Escolha sua Consulta</h2>
+                <p style="text-align: center; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    <strong>Pagamento único por PIX</strong> - Após o pagamento, você deverá clicar no botão do WhatsApp que aparecerá para enviar o comprovante e fornecer os dados do seu processo para consulta, como número do processo e senha caso seja um processo sob segredo de justiça. <!-- ALTERADO -->
                 </p>
-            </div>
-        </section>
-
-        <!-- ===== TELA 2: LOGIN ===== -->
-        <section id="tela-login" class="tela">
-            <div class="form-container">
-                <h1 style="text-align: center; color: #1a3c8b; margin-bottom: 0.5rem;">Acesse sua conta</h1>
-                <p style="text-align: center; color: #666; margin-bottom: 2rem;">Entre com seu e-mail e senha</p>
                 
-                <form id="form-login">
-                    <div class="form-group">
-                        <label for="login-email">E-mail</label>
-                        <input type="email" id="login-email" placeholder="seu@email.com" required>
+                <div class="plans">
+                    <!-- Consulta 1 -->
+                    <div class="plan-card">
+                        <h3 class="plan-name">Consulta Básica</h3>
+                        <div class="plan-price">R$ 9,90</div>
+                        <ul class="plan-features">
+                            <li>Explicação básica do seu processo</li>
+                            <li>Tradução dos termos jurídicos</li>
+                            <li>Status atual e próximos passos </li>
+                            <li>Resposta rápida pelo WhatsApp</li>
+                         </ul>
+                        <button class="btn btn-secondary" onclick="showPaymentPage('Consulta Básica', 9.90, 'qrcod/QRCOD 9,90.jpg', '00020126330014BR.GOV.BCB.PIX01113423761989352040000530398654049.905802BR5925Tulio Cesar de Castro Mat6009SAO PAULO62140510l1mE58jwN76304D108', '24 horas')">Selecionar</button>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="login-senha">Senha</label>
-                        <input type="password" id="login-senha" placeholder="Sua senha" required>
+                    <!-- Consulta 2 -->
+                    <div class="plan-card featured">
+                        <div style="background: #4dabf7; color: white; padding: 5px 10px; border-radius: 20px; display: inline-block; margin-bottom: 1rem; font-size: 0.9rem;">MAIS POPULAR</div>
+                        <h3 class="plan-name">Análise Intermediária</h3>
+                        <div class="plan-price">R$ 29,90</div>
+                        <ul class="plan-features">
+                            <li>Explicação do status/fase atual</li>
+                            <li>Tradução dos termos jurídicos</li>
+                            <li>Análise de pontos fortes/fracos</li>
+                            <li>Explicação detalhada das etapas</li>
+                            <li>Possíveis cenários futuros</li>
+                            <li>Relatório em formato PDF</li>
+                            <li>Resposta rápida</li>
+                            <li>Direito a uma pergunta via WhatsApp</li>
+                        </ul>
+                        <button class="btn" onclick="showPaymentPage('Análise Intermediária', 29.90, 'qrcod/QRCOD 29,90.jpg', '00020126580014BR.GOV.BCB.PIX0136331058c2-a5db-49f3-add9-84f4748aaddf520400005303986540529.905802BR5925Tulio Cesar de Castro Mat6009SAO PAULO61080540900062250521YexjFzrbIqc4txJ1903w463042A7E', '48 horas')">Selecionar</button>
                     </div>
                     
-                    <button type="submit" class="btn btn-block">ENTRAR NA MINHA CONTA</button>
-                    
-                    <div class="login-message">
-                        <a href="#" onclick="mostrarTela('recuperacao')">Esqueci minha senha</a>
+                    <!-- Consulta 3 -->
+                    <div class="plan-card">
+                        <div style="background: #ff6b6b; color: white; padding: 5px 10px; border-radius: 20px; display: inline-block; margin-bottom: 1rem; font-size: 0.9rem;">PREMIUM</div>
+                        <h3 class="plan-name">Consulta Premium</h3>
+                        <div class="plan-price">R$ 49,90</div>
+                        <ul class="plan-features">
+                            <li>Explicação do status/fase atual</li>
+                            <li>Tradução dos termos jurídicos</li>
+                            <li>Análise de pontos fortes/fracos</li>
+                            <li>Explicação detalhada das etapas</li>
+                            <li>Possíveis cenários futuros</li>
+                            <li>Relatório em formato PDF</li>
+                            <li>Resposta rápida</li>
+                            <li>Direito a 3 perguntas via WhatsApp</li>
+                            <li>Direito a uma chamada de vídeo no WhatsApp 5 minutos</li>
+                            <li>Envio dos documentps disponiveis no processo</li>
+                            <li>Prioridade na resposta (12h)</li>
+                            <li>Relatório completo + resumo</li>
+                        </ul>
+                        <button class="btn btn-secondary" onclick="showPaymentPage('Consulta Premium', 49.90, 'qrcod/QRCOD 49,90.jpg', '00020126330014BR.GOV.BCB.PIX011134237619893520400005303986540549.905802BR5925Tulio Cesar de Castro Mat6009SAO PAULO6214051021lDpjpg9W63040D29', '12 horas')">Selecionar</button>
                     </div>
-                </form>
-                
-                <div style="text-align: center; margin-top: 1.5rem;">
-                    <p>Não tem conta? <a href="#" onclick="mostrarTela('inicio')" style="color: #4dabf7; font-weight: 600;">Faça seu cadastro grátis</a></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== TELA 3: RECUPERAÇÃO DE SENHA ===== -->
-        <section id="tela-recuperacao" class="tela">
-            <div class="form-container">
-                <h1 style="text-align: center; color: #1a3c8b;">Recuperar Senha</h1>
-                
-                <!-- Etapa 1: Solicitar recuperação -->
-                <div id="etapa1-recuperacao">
-                    <p style="text-align: center; margin-bottom: 1.5rem;">
-                        Digite seu e-mail cadastrado para receber um token de recuperação
-                    </p>
-                    
-                    <form id="form-solicitar-recuperacao">
-                        <div class="form-group">
-                            <label for="email-recuperacao">E-mail cadastrado</label>
-                            <input type="email" id="email-recuperacao" placeholder="seu@email.com" required>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-block">ENVIAR TOKEN DE RECUPERAÇÃO</button>
-                    </form>
-                    
-                    <div style="text-align: center; margin-top: 1.5rem;">
-                        <p>Lembrou da senha? <a href="#" onclick="mostrarTela('login')" style="color: #4dabf7;">Faça login</a></p>
-                    </div>
-                </div>
-                
-                <!-- Etapa 2: Inserir token e nova senha -->
-                <div id="etapa2-recuperacao" style="display: none;">
-                    <p style="text-align: center; margin-bottom: 1.5rem;">
-                        Digite o token recebido por e-mail e sua nova senha
-                    </p>
-                    
-                    <form id="form-alterar-senha">
-                        <input type="hidden" id="email-token">
-                        
-                        <div class="form-group">
-                            <label for="token-recuperacao">Token de recuperação</label>
-                            <input type="text" id="token-recuperacao" placeholder="Ex: ABC123DEF" required>
-                            <small style="color: #666;">Verifique sua caixa de e-mail (e spam)</small>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="nova-senha">Nova Senha</label>
-                            <input type="password" id="nova-senha" placeholder="Mínimo 6 caracteres" required minlength="6">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="confirmar-senha">Confirmar Nova Senha</label>
-                            <input type="password" id="confirmar-senha" placeholder="Digite novamente" required minlength="6">
-                        </div>
-                        
-                        <button type="submit" class="btn btn-block btn-success">ALTERAR SENHA</button>
-                    </form>
-                    
-                    <div style="text-align: center; margin-top: 1.5rem;">
-                        <button onclick="voltarEtapa1Recuperacao()" class="btn btn-secondary">Voltar</button>
-                    </div>
-                </div>
-                
-                <!-- Loader -->
-                <div id="loader-recuperacao" class="loader"></div>
-                
-                <!-- Mensagens -->
-                <div id="mensagem-recuperacao"></div>
-            </div>
-        </section>
-
-        <!-- ===== TELA 4: CONSULTA GRÁTIS ===== -->
-        <section id="tela-consulta" class="tela">
-            <div class="hero">
-                <h1>Consulta Gratuita do Seu Processo</h1>
-                <p>Digite o número do processo para ver o status atual</p>
-            </div>
-
-            <div class="form-container">
-                <h2 style="text-align: center; color: #1a3c8b;">Digite o número do processo</h2>
-                
-                <form id="form-consulta">
-                    <div class="form-group">
-                        <label for="numero-processo">Número do Processo *</label>
-                        <input type="text" id="numero-processo" placeholder="Ex: 0000000-00.0000.0.00.0000" required>
-                        <small style="color: #666;">Digite qualquer número para teste</small>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-block">CONSULTAR STATUS GRATUITO</button>
-                </form>
-            </div>
-
-            <!-- Resultado da consulta -->
-            <div id="resultado-consulta" class="card" style="display: none; max-width: 800px; margin: 2rem auto;">
-                <h2 style="color: #1a3c8b; margin-bottom: 1rem;">Resultado da Consulta</h2>
-                
-                <div class="process-step">
-                    <div class="step-icon">1</div>
-                    <div>
-                        <h3 style="margin-bottom: 0.2rem;">Status Atual</h3>
-                        <p><strong style="color: #4dabf7;">Aguardando designação de audiência</strong></p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-icon">2</div>
-                    <div>
-                        <h3 style="margin-bottom: 0.2rem;">Última Movimentação</h3>
-                        <p>Petição inicial protocolada em 15/03/2024</p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-icon">3</div>
-                    <div>
-                        <h3 style="margin-bottom: 0.2rem;">Próximo Prazo</h3>
-                        <p>Designação de audiência - estimado em 30 dias</p>
-                    </div>
-                </div>
-                
-                <div class="alert alert-warning">
-                    <p><strong>Consulta Básica</strong> - Para entender o que significa cada etapa, próximos passos e análise completa:</p>
-                    <div style="text-align: center; margin-top: 1rem;">
-                        <button onclick="mostrarTela('planos')" class="btn btn-success">VER ANÁLISE COMPLETA (R$ 29,90)</button>
-                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">ou assine um de nossos planos mensais</p>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 1.5rem;">
-                    <button onclick="mostrarTela('consulta')" class="btn btn-secondary">FAZER OUTRA CONSULTA</button>
                 </div>
             </div>
         </section>
 
-        <!-- ===== TELA 5: PLANOS ===== -->
-        <section id="tela-planos" class="tela">
-            <div class="hero">
-                <h1>Escolha o plano ideal para você</h1>
-                <p>Entenda completamente seu processo judicial</p>
-            </div>
-
-            <div class="planos-container">
-                <!-- Plano 1 -->
-                <div class="card plan-card" style="flex: 1; min-width: 300px;">
-                    <div class="plan-name">Acompanhamento Básico</div>
-                    <div class="plan-price">R$ 9,90<span style="font-size: 1rem; color: #666;">/mês</span></div>
-                    
-                    <ul style="list-style: none; margin: 1.5rem 0;">
-                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✓ Acompanhamento do processo</li>
-                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✓ Atualizações em até 24h</li>
-                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✓ Notificações por e-mail</li>
-                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✓ Linguagem simples</li>
-                        <li style="padding: 0.5rem 0;">✓ Suporte por e-mail</li>
-                    </ul>
-                    
-                    <button onclick="selecionarPlano('basico')" class="btn btn-secondary btn-block">SELECIONAR PLANO</button>
-                </div>
-                
-                <!-- Plano 2 (Destaque) -->
-                <div class="card plan-card featured" style="flex: 1; min-width: 300px;">
-                    <div style="background: #4dabf7; color: white; padding: 5px 15px; border-radius: 20px; display: inline-block; margin-bottom: 1rem; font-size: 0.9rem;">MAIS POPULAR</div>
-                    <div class="plan-name">Relatório Completo</div>
-                    <div class="plan-price">R$ 29,90<span style="font-size: 1rem; color: #666;">/mês</span></div>
-                    
-                    <ul style="list-style: none; margin: 1.5rem 0;">
-                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✓ Tudo do Plano Básico +</li>
-                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✓ Relatório mensal em PDF</li>
-                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✓ Análise por advogado</li>
-                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✓ Explicação detalhada</li>
-                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✓ Próximos passos</li>
-                        <li style="padding: 0.5rem 0;">✓ Entrega em até 48h</li>
-                    </ul>
-                    
-                    <button onclick="selecionarPlano('completo')" class="btn btn-block">SELECIONAR PLANO</button>
-                </div>
-                
-                <!-- Pagamento Único -->
-                <div class="card plan-card" style="flex: 1; min-width: 300px;">
-                    <div class="plan-name">Análise Pontual</div>
-                    <div class="plan-price">R$ 49,90<span style="font-size: 1rem; color: #666;">/único</span></div>
-                    
-                    <ul style="list-style: none; margin: 1.5rem 0;">
-                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✓ Relatório completo único</li>
-                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✓ Análise do processo atual</li>
-                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✓ Explicação passo a passo</li>
-                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✓ Recomendações</li>
-                        <li style="padding: 0.5rem 0;">✓ PDF entregue em 48h</li>
-                    </ul>
-                    
-                    <button onclick="selecionarPlano('pontual')" class="btn btn-secondary btn-block">COMPRAR ANÁLISE</button>
-                </div>
-            </div>
-
-            <!-- Formulário de pagamento -->
-            <div id="pagamento-container" class="form-container" style="display: none;">
-                <h2 style="text-align: center; color: #1a3c8b;">Finalizar Compra</h2>
-                <p style="text-align: center; color: #666; margin-bottom: 1.5rem;">Plano selecionado: <strong id="plano-selecionado"></strong></p>
-                
-                <form id="pagamento-form">
-                    <div class="form-group">
-                        <label for="nome-cartao">Nome no Cartão</label>
-                        <input type="text" id="nome-cartao" placeholder="Como está no cartão" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="numero-cartao">Número do Cartão</label>
-                        <input type="text" id="numero-cartao" placeholder="0000 0000 0000 0000" required>
-                    </div>
-                    
-                    <div style="display: flex; gap: 1rem;">
-                        <div class="form-group" style="flex: 1;">
-                            <label for="validade">Validade (MM/AA)</label>
-                            <input type="text" id="validade" placeholder="MM/AA" required>
-                        </div>
-                        
-                        <div class="form-group" style="flex: 1;">
-                            <label for="cvv">CVV</label>
-                            <input type="text" id="cvv" placeholder="123" required>
-                        </div>
-                    </div>
-                    
-                    <div class="alert alert-info">
-                        <p><strong>Pagamento simulado:</strong> Este é um protótipo. Não será cobrado nada.</p>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-success btn-block">CONFIRMAR PAGAMENTO</button>
-                    <button type="button" onclick="cancelarPagamento()" class="btn btn-secondary btn-block" style="margin-top: 1rem;">CANCELAR</button>
-                </form>
-            </div>
-
-            <div style="text-align: center; margin-top: 2rem;">
-                <button onclick="mostrarTela('dashboard')" class="btn btn-secondary">IR PARA MEU DASHBOARD</button>
-            </div>
-        </section>
-
-        <!-- ===== TELA 6: DASHBOARD ===== -->
-        <section id="tela-dashboard" class="tela">
-            <div class="hero" style="padding: 2rem 0;">
-                <h1>Seu Dashboard</h1>
-                <p>Bem-vindo à sua área de acompanhamento</p>
-            </div>
-
-            <!-- Status do Plano -->
-            <div class="card" style="max-width: 800px; margin: 0 auto 2rem;">
-                <h2 style="color: #1a3c8b; margin-bottom: 1rem;">Seu Plano</h2>
-                <div id="plano-info">
-                    <p>Carregando informações do seu plano...</p>
-                </div>
-                <div style="text-align: center; margin-top: 1rem;">
-                    <button onclick="mostrarTela('planos')" class="btn btn-secondary">ALTERAR PLANO</button>
-                </div>
-            </div>
-
-            <!-- Processos Monitorados -->
-            <div class="card" style="max-width: 800px; margin: 0 auto 2rem;">
-                <h2 style="color: #1a3c8b; margin-bottom: 1rem;">Seus Processos</h2>
-                
-                <div id="lista-processos">
-                    <p>Nenhum processo cadastrado ainda.</p>
-                </div>
-                
-                <div style="text-align: center; margin-top: 1.5rem;">
-                    <button onclick="mostrarTela('consulta')" class="btn">ADICIONAR NOVO PROCESSO</button>
-                </div>
-            </div>
-
-            <!-- Relatórios -->
-            <div class="card" style="max-width: 800px; margin: 0 auto 2rem;" id="relatorios-container">
-                <h2 style="color: #1a3c8b; margin-bottom: 1rem;">Relatórios</h2>
-                <div id="lista-relatorios">
-                    <p>Você ainda não tem relatórios gerados.</p>
-                </div>
-                <div style="text-align: center; margin-top: 1.5rem;">
-                    <button onclick="solicitarRelatorio()" class="btn">SOLICITAR NOVO RELATÓRIO</button>
-                </div>
-            </div>
-
-            <!-- Acompanhamento -->
-            <div class="card" style="max-width: 800px; margin: 0 auto;">
-                <h2 style="color: #1a3c8b; margin-bottom: 1rem;">Acompanhamento do Processo</h2>
-                
-                <div id="acompanhamento-container">
-                    <p>Selecione um processo na lista acima para ver o acompanhamento.</p>
+        <!-- CONTATO -->
+        <section class="section" id="contato" style="background: #f1f5f9;">
+            <div class="container">
+                <h2 class="section-title">Dúvidas?</h2>
+                <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+                    <p style="margin-bottom: 2rem;">Entre em contato conosco antes de comprar se tiver qualquer dúvida sobre nossos serviços.</p>
+                    <a href="https://wa.me/5516992705639?text=Olá! Tenho uma dúvida sobre as consultas do Processo Claro" class="whatsapp-btn" target="_blank" style="display: inline-flex; width: auto;">
+                        <span>Falar no WhatsApp</span>
+                    </a>
                 </div>
             </div>
         </section>
-    </main>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="container">
+                <div class="footer-logo">Processo<span>Claro</span></div> <!-- Classe diferente -->
+                <p>Seu processo explicado em linguagem simples, sem juridiquês.</p>
+                <div class="disclaimer">
+                    Processo Claro é um serviço informativo e consultivo para explicação de processos judiciais em linguagem simples. Não realizamos representação processual, não substituímos a atuação de nenhum advogado regular e não garantimos resultados ou prazos processuais. Serviço prestado mediante pagamento único por consulta.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- PÁGINA DE PAGAMENTO (ESCONDIDA INICIALMENTE) -->
+    <div id="payment-content" class="payment-page">
+        <div class="payment-header">
+            <div class="logo">Processo<span>Claro</span></div>
+            <h1 id="payment-plan-name">Consulta Básica</h1>
+            <p id="payment-plan-price">R$ 9,90 - Pagamento único via PIX</p>
+        </div>
+        
+        <div class="qrcode-container">
+            <div class="qrcode">
+                <img id="payment-qrcode" src="" alt="QR Code PIX">
+            </div>
+            <p><strong>Escaneie o QR Code com seu app bancário</strong></p>
+        </div>
+        
+        <p>Ou copie o código PIX:</p>
+        <div class="pix-code" id="payment-pix-code"></div>
+        <button class="nubank-link" onclick="copyPixCode()">📋 Copiar Código PIX</button>
+        
+        <!-- LINK NUBANK - ABRE EM NOVA ABA -->
+        <a href="https://nubank.com.br/cobrar/1903w4/698a62e4-81a1-44a0-be3d-b8ddbc1e0e6e" class="nubank-link" target="_blank" rel="noopener noreferrer">
+            💜 Se estiver com dificuldade de pagamento, clique aqui para pagar pelo Nubank
+        </a>
+        
+        <div class="instructions">
+            <strong>Instruções:</strong><br>
+            1. Faça o pagamento via PIX usando o QR Code, código PIX ou link Nubank acima<br>
+            2. Clique no botão abaixo para ir para nosso WhatsApp<br>
+            3. Envie o comprovante de pagamento e o número do processo<br>
+            4. Informe também a senha caso seja um processo sob segredo de justiça<br>
+            5. Aguarde nossa resposta em até <span id="payment-time">24 horas</span>
+        </div>
+        
+        <!-- LINK WHATSAPP - ABRE EM NOVA ABA -->
+        <a href="#" class="whatsapp-btn" id="payment-whatsapp-link" target="_blank" rel="noopener noreferrer">
+            📱 Ir para WhatsApp e Enviar Comprovante
+        </a>
+        
+        <button class="back-btn" onclick="showMainPage()">← Voltar para escolher outro plano</button>
+    </div>
 
     <script>
-        // ===== CONFIGURAÇÃO DA API =====
-        const API_URL = 'https://script.google.com/macros/s/AKfycbyS0s4DVliPnm5W2xa_EETWD4PGKpgMCX-yxCwwbpPLlyNo7vD3cElrupXrxdjQXC2O/exec';
+        // Função para mostrar a página de pagamento
+        function showPaymentPage(planName, price, qrCodeImage, pixCode, responseTime) {
+            // Esconder conteúdo principal
+            document.getElementById('main-content').style.display = 'none';
+            
+            // Atualizar dados da página de pagamento
+            document.getElementById('payment-plan-name').textContent = planName;
+            document.getElementById('payment-plan-price').textContent = `R$ ${price.toFixed(2).replace('.', ',')} - Pagamento único via PIX`;
+            document.getElementById('payment-pix-code').textContent = pixCode;
+            document.getElementById('payment-time').textContent = responseTime;
+            
+            // Atualizar imagem do QR Code
+            const qrCodeImg = document.getElementById('payment-qrcode');
+            qrCodeImg.src = qrCodeImage;
+            qrCodeImg.alt = `QR Code PIX ${planName} - R$ ${price.toFixed(2).replace('.', ',')}`;
+            
+            // Atualizar link do WhatsApp
+            const whatsappNumber = "5516992705639";
+            const whatsappMessage = `Olá! Acabei de pagar a ${planName.toUpperCase()} (R$ ${price.toFixed(2).replace('.', ',')}) do Processo Claro. Segue comprovante:`;
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            document.getElementById('payment-whatsapp-link').href = whatsappUrl;
+            
+            // Mostrar página de pagamento
+            document.getElementById('payment-content').style.display = 'block';
+            
+            // Scroll para o topo
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
         
-        // ===== SISTEMA DE GERENCIAMENTO =====
-        let usuarioLogado = null;
-        let planoSelecionado = '';
+        // Função para voltar à página principal
+        function showMainPage() {
+            // Esconder página de pagamento
+            document.getElementById('payment-content').style.display = 'none';
+            
+            // Mostrar conteúdo principal
+            document.getElementById('main-content').style.display = 'block';
+            
+            // Scroll para o topo
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
         
-        // ===== INICIALIZAÇÃO =====
+        // Função para copiar código PIX
+        function copyPixCode() {
+            const pixCode = document.getElementById('payment-pix-code').textContent;
+            navigator.clipboard.writeText(pixCode).then(() => {
+                alert('Código PIX copiado! Agora cole no seu app bancário.');
+            }).catch(err => {
+                // Fallback para navegadores mais antigos
+                const textArea = document.createElement('textarea');
+                textArea.value = pixCode;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('Código PIX copiado! Agora cole no seu app bancário.');
+            });
+        }
+        
+        // Função para scroll suave
+        function smoothScroll(targetId) {
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        // Inicialização
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('Sistema Processo Claro iniciado');
-            verificarLogin();
-            atualizarMenu();
-            
-            // Event Listeners
-            document.getElementById('form-cadastro').addEventListener('submit', cadastrarUsuario);
-            document.getElementById('form-login').addEventListener('submit', fazerLogin);
-            document.getElementById('form-consulta').addEventListener('submit', fazerConsulta);
-            document.getElementById('pagamento-form').addEventListener('submit', finalizarPagamento);
-            document.getElementById('form-solicitar-recuperacao').addEventListener('submit', solicitarRecuperacao);
-            document.getElementById('form-alterar-senha').addEventListener('submit', alterarSenha);
-        });
-        
-        // ===== FUNÇÕES DE API SIMPLIFICADAS =====
-        
-        async function fazerRequisicaoAPI(acao, dados) {
-            console.log(`📤 Tentando enviar ${acao} para API:`, dados);
-            
-            // Método SIMPLES que funciona com Google Apps Script
-            try {
-                // Cria parâmetros de URL
-                const params = new URLSearchParams();
-                params.append('action', acao);
-                
-                // Adiciona todos os dados
-                for (const key in dados) {
-                    params.append(key, dados[key]);
-                }
-                
-                // Usa uma imagem para enviar dados (método que evita CORS)
-                const url = `${API_URL}?${params.toString()}`;
-                console.log('URL da requisição:', url);
-                
-                // Cria uma imagem invisível para disparar a requisição
-                const img = new Image();
-                img.src = url;
-                
-                console.log('✅ Requisição disparada via método imagem');
-                
-                return {
-                    success: true,
-                    message: `Dados enviados para API: ${acao}`,
-                    action: acao,
-                    dados: dados,
-                    timestamp: new Date().toISOString()
-                };
-                
-            } catch (erro) {
-                console.error('❌ Erro ao enviar para API:', erro);
-                
-                // Modo simulado para desenvolvimento
-                return {
-                    success: false,
-                    message: `API offline - usando modo simulado: ${acao}`,
-                    modo_simulado: true,
-                    dados: dados,
-                    timestamp: new Date().toISOString()
-                };
-            }
-        }
-        
-        // ===== SISTEMA DE LOGIN =====
-        
-        function verificarLogin() {
-            const usuarioData = localStorage.getItem('usuarioLogado');
-            if (usuarioData) {
-                usuarioLogado = JSON.parse(usuarioData);
-                mostrarTela('dashboard');
-            } else {
-                mostrarTela('inicio');
-            }
-        }
-        
-        function atualizarMenu() {
-            const nav = document.getElementById('nav-menu');
-            nav.innerHTML = '';
-            
-            if (usuarioLogado) {
-                nav.innerHTML = `
-                    <span style="color: white; margin-right: 1rem;">Olá, ${usuarioLogado.nome ? usuarioLogado.nome.split(' ')[0] : 'Usuário'}</span>
-                    <a href="#" onclick="mostrarTela('dashboard')">Dashboard</a>
-                    <a href="#" onclick="mostrarTela('consulta')">Nova Consulta</a>
-                    <a href="#" onclick="mostrarTela('planos')">Planos</a>
-                    <a href="#" onclick="sair()">Sair</a>
-                `;
-            } else {
-                nav.innerHTML = `
-                    <a href="#" onclick="mostrarTela('inicio')">Início</a>
-                    <a href="#" onclick="mostrarTela('login')">Login</a>
-                    <a href="#" onclick="mostrarTela('recuperacao')">Esqueci a Senha</a>
-                `;
-            }
-        }
-        
-        // ===== TROCA ENTRE TELAS =====
-        function mostrarTela(nomeTela) {
-            // Esconde todas as telas
-            document.querySelectorAll('.tela').forEach(tela => {
-                tela.classList.remove('ativa');
-            });
-            
-            // Mostra a tela solicitada
-            const telaAlvo = document.getElementById(`tela-${nomeTela}`);
-            if (telaAlvo) {
-                telaAlvo.classList.add('ativa');
-            }
-            
-            // Reset da tela de recuperação quando mostrar
-            if (nomeTela === 'recuperacao') {
-                voltarEtapa1Recuperacao();
-            }
-            
-            // Ações específicas para cada tela
-            if (nomeTela === 'dashboard' && usuarioLogado) {
-                carregarDashboard();
-            }
-            
-            if (nomeTela === 'consulta') {
-                document.getElementById('resultado-consulta').style.display = 'none';
-            }
-            
-            if (nomeTela === 'planos') {
-                document.getElementById('pagamento-container').style.display = 'none';
-            }
-        }
-        
-        // ===== CADASTRO DE USUÁRIO =====
-        
-        async function cadastrarUsuario(e) {
-            e.preventDefault();
-            
-            // Validações básicas
-            const senha = document.getElementById('senha').value;
-            const confirmarSenha = document.getElementById('confirmar-senha-cadastro').value;
-            
-            if (senha !== confirmarSenha) {
-                alert('❌ As senhas não coincidem!');
-                return;
-            }
-            
-            if (senha.length < 6) {
-                alert('❌ A senha deve ter no mínimo 6 caracteres!');
-                return;
-            }
-            
-            // Mostrar loader
-            const btn = e.target.querySelector('button[type="submit"]');
-            const originalText = btn.textContent;
-            btn.textContent = 'CADASTRANDO...';
-            btn.disabled = true;
-            
-            const usuario = {
-                nome: document.getElementById('nome').value,
-                email: document.getElementById('email').value,
-                whatsapp: document.getElementById('whatsapp').value,
-                senha: senha
-            };
-            
-            // Tenta enviar para API
-            const resultadoAPI = await fazerRequisicaoAPI('cadastrar', usuario);
-            console.log('Resultado API cadastro:', resultadoAPI);
-            
-            // Restaurar botão
-            btn.textContent = originalText;
-            btn.disabled = false;
-            
-            // Simula cadastro bem-sucedido
-            const usuarioSimulado = {
-                id: 'USR_' + Date.now(),
-                nome: usuario.nome,
-                email: usuario.email,
-                whatsapp: usuario.whatsapp,
-                plano: 'gratuito'
-            };
-            
-            // Salva usuário no localStorage
-            localStorage.setItem('usuarioLogado', JSON.stringify(usuarioSimulado));
-            usuarioLogado = usuarioSimulado;
-            
-            // Atualiza menu e mostra consulta
-            atualizarMenu();
-            mostrarTela('consulta');
-            
-            // Mensagem apropriada
-            if (resultadoAPI.modo_simulado) {
-                alert('✅ Cadastro realizado localmente!\n⚠️ API offline - dados não foram para o Google Sheets.');
-            } else {
-                alert('✅ Cadastro realizado com sucesso! Dados enviados para o Google Sheets.');
-            }
-            
-            // Limpa formulário
-            document.getElementById('form-cadastro').reset();
-        }
-        
-        // ===== LOGIN =====
-        
-        async function fazerLogin(e) {
-            e.preventDefault();
-            
-            const email = document.getElementById('login-email').value;
-            const senha = document.getElementById('login-senha').value;
-            
-            // Mostrar loader
-            const btn = e.target.querySelector('button[type="submit"]');
-            const originalText = btn.textContent;
-            btn.textContent = 'ENTRANDO...';
-            btn.disabled = true;
-            
-            // Tenta enviar para API
-            const resultadoAPI = await fazerRequisicaoAPI('login', {
-                email: email,
-                senha: senha
-            });
-            
-            // Restaurar botão
-            btn.textContent = originalText;
-            btn.disabled = false;
-            
-            // Simula usuário
-            const usuarioSimulado = {
-                id: 'USR_123456',
-                nome: 'Usuário Teste',
-                email: email,
-                whatsapp: '(11) 99999-9999',
-                plano: 'gratuito'
-            };
-            
-            // Salva usuário no localStorage
-            localStorage.setItem('usuarioLogado', JSON.stringify(usuarioSimulado));
-            usuarioLogado = usuarioSimulado;
-            
-            // Atualiza menu
-            atualizarMenu();
-            
-            // Mostra dashboard
-            mostrarTela('dashboard');
-            
-            // Limpa formulário
-            document.getElementById('form-login').reset();
-            
-            // Mensagem de sucesso
-            alert('✅ Login realizado com sucesso!');
-        }
-        
-        // ===== RECUPERAÇÃO DE SENHA =====
-        
-        async function solicitarRecuperacao(e) {
-            e.preventDefault();
-            
-            const email = document.getElementById('email-recuperacao').value;
-            
-            if (!email || !email.includes('@')) {
-                mostrarMensagemRecuperacao('❌ Digite um e-mail válido', 'error');
-                return;
-            }
-            
-            // Mostrar loader
-            document.getElementById('loader-recuperacao').style.display = 'block';
-            document.getElementById('mensagem-recuperacao').innerHTML = '';
-            
-            // Tenta enviar para API
-            const resultadoAPI = await fazerRequisicaoAPI('recuperar_senha', {
-                email: email
-            });
-            
-            // Esconder loader
-            document.getElementById('loader-recuperacao').style.display = 'none';
-            
-            // Simula token gerado
-            const tokenTeste = 'TOKEN_' + Date.now().toString(36).toUpperCase().substr(0, 8);
-            
-            // Salva email para próxima etapa
-            document.getElementById('email-token').value = email;
-            
-            // MOSTRAR MENSAGEM
-            mostrarMensagemRecuperacao(`
-                <strong>✅ Token de recuperação gerado!</strong><br>
-                <small>Token para testes: <strong>${tokenTeste}</strong></small><br>
-                <small>E-mail: ${email}</small>
-            `, 'success');
-            
-            // Mostra etapa 2 após 2 segundos
-            setTimeout(() => {
-                document.getElementById('etapa1-recuperacao').style.display = 'none';
-                document.getElementById('etapa2-recuperacao').style.display = 'block';
-                document.getElementById('mensagem-recuperacao').innerHTML = '';
-            }, 2000);
-        }
-        
-        async function alterarSenha(e) {
-            e.preventDefault();
-            
-            const email = document.getElementById('email-token').value;
-            const token = document.getElementById('token-recuperacao').value;
-            const novaSenha = document.getElementById('nova-senha').value;
-            const confirmarSenha = document.getElementById('confirmar-senha').value;
-            
-            // Validações
-            if (novaSenha !== confirmarSenha) {
-                mostrarMensagemRecuperacao('❌ As senhas não coincidem!', 'error');
-                return;
-            }
-            
-            if (novaSenha.length < 6) {
-                mostrarMensagemRecuperacao('❌ A senha deve ter no mínimo 6 caracteres!', 'error');
-                return;
-            }
-            
-            // Mostrar loader
-            const btn = e.target.querySelector('button[type="submit"]');
-            const originalText = btn.textContent;
-            btn.textContent = 'ALTERANDO...';
-            btn.disabled = true;
-            
-            // Tenta enviar para API
-            const resultadoAPI = await fazerRequisicaoAPI('alterar_senha', {
-                email: email,
-                token: token,
-                nova_senha: novaSenha
-            });
-            
-            btn.textContent = originalText;
-            btn.disabled = false;
-            
-            mostrarMensagemRecuperacao('✅ Senha alterada com sucesso!', 'success');
-            
-            // Aguarda 2 segundos e redireciona para login
-            setTimeout(() => {
-                mostrarTela('login');
-                // Limpa formulários
-                document.getElementById('form-alterar-senha').reset();
-                document.getElementById('form-solicitar-recuperacao').reset();
-                document.getElementById('mensagem-recuperacao').innerHTML = '';
-                voltarEtapa1Recuperacao();
-            }, 2000);
-        }
-        
-        function mostrarMensagemRecuperacao(mensagem, tipo) {
-            const div = document.getElementById('mensagem-recuperacao');
-            
-            if (tipo === 'success') {
-                div.innerHTML = `<div class="success-message">${mensagem}</div>`;
-            } else {
-                div.innerHTML = `<div class="error-message">${mensagem}</div>`;
-            }
-        }
-        
-        function voltarEtapa1Recuperacao() {
-            document.getElementById('etapa2-recuperacao').style.display = 'none';
-            document.getElementById('etapa1-recuperacao').style.display = 'block';
-            document.getElementById('mensagem-recuperacao').innerHTML = '';
-            document.getElementById('form-solicitar-recuperacao').reset();
-        }
-        
-        // ===== CONSULTA DE PROCESSOS =====
-        function fazerConsulta(e) {
-            e.preventDefault();
-            
-            if (!usuarioLogado) {
-                alert('❌ Faça login primeiro!');
-                mostrarTela('login');
-                return;
-            }
-            
-            const processo = document.getElementById('numero-processo').value;
-            
-            if (processo.length < 5) {
-                alert('❌ Digite um número de processo válido');
-                return;
-            }
-            
-            // Salva no histórico
-            let historico = JSON.parse(localStorage.getItem(`historico_${usuarioLogado.email}`) || '[]');
-            historico.push({
-                processo: processo,
-                data: new Date().toLocaleString(),
-                tipo: 'consulta_gratis'
-            });
-            localStorage.setItem(`historico_${usuarioLogado.email}`, JSON.stringify(historico));
-            
-            // Mostra resultado
-            document.getElementById('resultado-consulta').style.display = 'block';
-            
-            // Rola para o resultado
-            document.getElementById('resultado-consulta').scrollIntoView({ behavior: 'smooth' });
-        }
-        
-        // ===== PLANOS E PAGAMENTO =====
-        function selecionarPlano(plano) {
-            planoSelecionado = plano;
-            
-            let nomePlano = '';
-            switch(plano) {
-                case 'basico': nomePlano = 'Acompanhamento Básico (R$ 9,90/mês)'; break;
-                case 'completo': nomePlano = 'Relatório Completo (R$ 29,90/mês)'; break;
-                case 'pontual': nomePlano = 'Análise Pontual (R$ 49,90)'; break;
-            }
-            
-            document.getElementById('plano-selecionado').textContent = nomePlano;
-            document.getElementById('pagamento-container').style.display = 'block';
-            document.getElementById('pagamento-container').scrollIntoView({ behavior: 'smooth' });
-        }
-        
-        function cancelarPagamento() {
-            document.getElementById('pagamento-container').style.display = 'none';
-        }
-        
-        function finalizarPagamento(e) {
-            e.preventDefault();
-            
-            if (!usuarioLogado) {
-                alert('❌ Faça login primeiro!');
-                mostrarTela('login');
-                return;
-            }
-            
-            // Salva plano do usuário
-            localStorage.setItem(`plano_${usuarioLogado.email}`, planoSelecionado);
-            
-            alert('✅ Pagamento confirmado! Plano ativado com sucesso.');
-            mostrarTela('dashboard');
-            
-            // Limpa formulário
-            document.getElementById('pagamento-form').reset();
-        }
-        
-        // ===== DASHBOARD =====
-        function carregarDashboard() {
-            if (!usuarioLogado) return;
-            
-            // Carrega informações do plano
-            const plano = localStorage.getItem(`plano_${usuarioLogado.email}`);
-            const planoInfo = document.getElementById('plano-info');
-            
-            if (plano) {
-                let nomePlano = '';
-                let descricao = '';
-                
-                switch(plano) {
-                    case 'basico':
-                        nomePlano = 'Acompanhamento Básico';
-                        descricao = 'R$ 9,90/mês • Atualizações em 24h';
-                        break;
-                    case 'completo':
-                        nomePlano = 'Relatório Completo';
-                        descricao = 'R$ 29,90/mês • Relatórios mensais em PDF';
-                        break;
-                    case 'pontual':
-                        nomePlano = 'Análise Pontual';
-                        descricao = 'R$ 49,90 (único) • Relatório único';
-                        break;
-                }
-                
-                planoInfo.innerHTML = `
-                    <h3 style="color: #4dabf7; margin-bottom: 0.5rem;">${nomePlano}</h3>
-                    <p>${descricao}</p>
-                `;
-                
-                // Esconde relatórios se for plano básico
-                if (plano === 'basico') {
-                    document.getElementById('relatorios-container').style.display = 'none';
-                } else {
-                    document.getElementById('relatorios-container').style.display = 'block';
-                }
-            } else {
-                planoInfo.innerHTML = `
-                    <div class="alert alert-warning">
-                        <p><strong>Plano Gratuito</strong></p>
-                        <p>Você está no plano gratuito. Assine um plano para ter acesso completo.</p>
-                    </div>
-                `;
-                document.getElementById('relatorios-container').style.display = 'none';
-            }
-            
-            // Carrega processos
-            carregarProcessos();
-            
-            // Carrega relatórios se houver
-            carregarRelatorios();
-        }
-        
-        function carregarProcessos() {
-            const historico = JSON.parse(localStorage.getItem(`historico_${usuarioLogado.email}`) || '[]');
-            const lista = document.getElementById('lista-processos');
-            
-            if (historico.length > 0) {
-                let html = '';
-                historico.forEach((item, index) => {
-                    if (item.processo) {
-                        html += `
-                            <div class="process-step" style="cursor: pointer;" onclick="verProcessoDetalhes('${item.processo}')">
-                                <div class="step-icon">${index + 1}</div>
-                                <div>
-                                    <h3 style="margin-bottom: 0.2rem;">${item.processo}</h3>
-                                    <p style="font-size: 0.9rem; color: #666;">Consultado em: ${item.data}</p>
-                                </div>
-                            </div>
-                        `;
+            // Garantir que apenas o conteúdo principal seja visível inicialmente
+            document.getElementById('main-content').style.display = 'block';
+            document.getElementById('payment-content').style.display = 'none';
+            
+            // Configurar links do menu para navegação suave
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') === '#') {
+                        return;
+                    }
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
                     }
                 });
-                lista.innerHTML = html;
-            } else {
-                lista.innerHTML = '<p>Nenhum processo cadastrado ainda.</p>';
-            }
-        }
-        
-        function verProcessoDetalhes(numero) {
-            document.getElementById('acompanhamento-container').innerHTML = `
-                <h3 style="color: #1a3c8b; margin-bottom: 1rem;">Processo: ${numero}</h3>
-                
-                <div class="process-step">
-                    <div class="step-icon">1</div>
-                    <div>
-                        <h4 style="margin-bottom: 0.2rem;">Status Atual</h4>
-                        <p><strong style="color: #4dabf7;">Aguardando audiência</strong></p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-icon">2</div>
-                    <div>
-                        <h4 style="margin-bottom: 0.2rem;">Última Movimentação</h4>
-                        <p>Petição inicial protocolada em 15/03/2024</p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-icon">3</div>
-                    <div>
-                        <h4 style="margin-bottom: 0.2rem;">Próximos Passos</h4>
-                        <p>Designação de audiência - estimado em 30 dias</p>
-                    </div>
-                </div>
-            `;
-        }
-        
-        function solicitarRelatorio() {
-            if (!usuarioLogado) {
-                alert('❌ Faça login primeiro!');
-                mostrarTela('login');
-                return;
-            }
-            
-            const processo = prompt("Digite o número do processo para o relatório:");
-            
-            if (processo && processo.length > 5) {
-                // Salva relatório
-                let relatorios = JSON.parse(localStorage.getItem(`relatorios_${usuarioLogado.email}`) || '[]');
-                relatorios.push({
-                    processo: processo,
-                    data: new Date().toLocaleString(),
-                    status: 'solicitado'
-                });
-                localStorage.setItem(`relatorios_${usuarioLogado.email}`, JSON.stringify(relatorios));
-                
-                alert('✅ Relatório solicitado! Será enviado por e-mail em até 48h.');
-                carregarRelatorios();
-            }
-        }
-        
-        function carregarRelatorios() {
-            const relatorios = JSON.parse(localStorage.getItem(`relatorios_${usuarioLogado.email}`) || '[]');
-            const lista = document.getElementById('lista-relatorios');
-            
-            if (relatorios.length > 0) {
-                let html = '';
-                relatorios.forEach((rel, index) => {
-                    html += `
-                        <div class="process-step">
-                            <div class="step-icon">📄</div>
-                            <div>
-                                <h3 style="margin-bottom: 0.2rem;">Relatório ${index + 1}</h3>
-                                <p style="font-size: 0.9rem; color: #666;">
-                                    Processo: ${rel.processo} • Emitido: ${rel.data}
-                                </p>
-                                <button onclick="baixarRelatorio(${index})" class="btn" style="padding: 5px 15px; font-size: 0.9rem; margin-top: 0.5rem;">
-                                    BAIXAR PDF
-                                </button>
-                            </div>
-                        </div>
-                    `;
-                });
-                lista.innerHTML = html;
-            } else {
-                lista.innerHTML = '<p>Você ainda não tem relatórios gerados.</p>';
-            }
-        }
-        
-        function baixarRelatorio(index) {
-            alert('📄 Download do relatório iniciado (simulado).\nEm produção, geraria um PDF real.');
-        }
-        
-        // ===== LOGOUT =====
-        function sair() {
-            if (confirm('Tem certeza que deseja sair?')) {
-                localStorage.removeItem('usuarioLogado');
-                usuarioLogado = null;
-                atualizarMenu();
-                mostrarTela('inicio');
-            }
-        }
+            });
+        });
     </script>
 </body>
 </html>
