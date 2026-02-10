@@ -40,7 +40,7 @@
         }
         
         .logo {
-            font-size: 2.2rem; /* AUMENTADO DE 1.8rem PARA 2.2rem */
+            font-size: 2.2rem;
             font-weight: 800;
             letter-spacing: 0.5px;
         }
@@ -94,7 +94,7 @@
         }
         
         .hero h1 {
-            font-size: 2.8rem; /* Aumentado um pouco */
+            font-size: 2.8rem;
             margin-bottom: 1rem;
             color: #1a3c8b;
             line-height: 1.3;
@@ -318,7 +318,7 @@
         }
         
         .footer-logo {
-            font-size: 2rem; /* Aumentado também no footer */
+            font-size: 2rem;
             font-weight: 800;
             margin-bottom: 1rem;
         }
@@ -376,7 +376,7 @@
             }
             
             .logo {
-                font-size: 1.8rem; /* Ajuste para mobile */
+                font-size: 1.8rem;
             }
             
             .footer-logo {
@@ -446,7 +446,7 @@
         <!-- HERO SECTION -->
         <section class="hero" id="home">
             <div class="container">
-                <h1>Explicamos o seu processo sem juridiquês</h1> <!-- ALTERADO -->
+                <h1>Explicamos o seu processo sem juridiquês</h1>
                 <p>Consulte o andamento do seu processo e receba explicações em linguagem simples. <strong>Pagamento único por PIX</strong> - sem mensalidade!</p>
                 <a href="#planos" class="btn" onclick="smoothScroll('#planos')">Ver Opções de Consulta</a>
             </div>
@@ -486,7 +486,7 @@
             <div class="container">
                 <h2 class="section-title">Escolha sua Consulta</h2>
                 <p style="text-align: center; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
-                    <strong>Pagamento único por PIX</strong> - Após o pagamento, você deverá clicar no botão do WhatsApp que aparecerá para enviar o comprovante e fornecer os dados do seu processo para consulta, como número do processo e senha caso seja um processo sob segredo de justiça. <!-- ALTERADO -->
+                    <strong>Pagamento único por PIX</strong> - Após o pagamento, você deverá clicar no botão do WhatsApp que aparecerá para enviar o comprovante e fornecer os dados do seu processo para consulta, como número do processo e senha caso seja um processo sob segredo de justiça.
                 </p>
                 
                 <div class="plans">
@@ -495,11 +495,12 @@
                         <h3 class="plan-name">Consulta Básica</h3>
                         <div class="plan-price">R$ 9,90</div>
                         <ul class="plan-features">
-                            <li>Explicação básica do seu processo</li>
+                            <li>Explicação do status atual</li>
                             <li>Tradução dos termos jurídicos</li>
-                            <li>Status atual e próximos passos </li>
-                            <li>Resposta rápida pelo WhatsApp</li>
-                         </ul>
+                            <li>Próximos passos esperados</li>
+                            <li>Resposta em até 24h</li>
+                            <li>Entrega por WhatsApp/Email</li>
+                        </ul>
                         <button class="btn btn-secondary" onclick="showPaymentPage('Consulta Básica', 9.90, 'qrcod/QRCOD 9,90.jpg', '00020126330014BR.GOV.BCB.PIX01113423761989352040000530398654049.905802BR5925Tulio Cesar de Castro Mat6009SAO PAULO62140510l1mE58jwN76304D108', '24 horas')">Selecionar</button>
                     </div>
                     
@@ -509,14 +510,12 @@
                         <h3 class="plan-name">Análise Intermediária</h3>
                         <div class="plan-price">R$ 29,90</div>
                         <ul class="plan-features">
-                            <li>Explicação do status/fase atual</li>
-                            <li>Tradução dos termos jurídicos</li>
+                            <li>Tudo da Consulta Básica +</li>
                             <li>Análise de pontos fortes/fracos</li>
                             <li>Explicação detalhada das etapas</li>
                             <li>Possíveis cenários futuros</li>
                             <li>Relatório em formato PDF</li>
-                            <li>Resposta rápida</li>
-                            <li>Direito a uma pergunta via WhatsApp</li>
+                            <li>Resposta em até 48h</li>
                         </ul>
                         <button class="btn" onclick="showPaymentPage('Análise Intermediária', 29.90, 'qrcod/QRCOD 29,90.jpg', '00020126580014BR.GOV.BCB.PIX0136331058c2-a5db-49f3-add9-84f4748aaddf520400005303986540529.905802BR5925Tulio Cesar de Castro Mat6009SAO PAULO61080540900062250521YexjFzrbIqc4txJ1903w463042A7E', '48 horas')">Selecionar</button>
                     </div>
@@ -527,16 +526,11 @@
                         <h3 class="plan-name">Consulta Premium</h3>
                         <div class="plan-price">R$ 49,90</div>
                         <ul class="plan-features">
-                            <li>Explicação do status/fase atual</li>
-                            <li>Tradução dos termos jurídicos</li>
-                            <li>Análise de pontos fortes/fracos</li>
-                            <li>Explicação detalhada das etapas</li>
-                            <li>Possíveis cenários futuros</li>
-                            <li>Relatório em formato PDF</li>
-                            <li>Resposta rápida</li>
-                            <li>Direito a 3 perguntas via WhatsApp</li>
-                            <li>Direito a uma chamada de vídeo no WhatsApp 5 minutos</li>
-                            <li>Envio dos documentps disponiveis no processo</li>
+                            <li>Tudo da Análise Intermediária +</li>
+                            <li>Orientações estratégicas</li>
+                            <li>Análise de documentação</li>
+                            <li>Sugestões de próximas ações</li>
+                            <li>Possibilidade de 1 follow-up</li>
                             <li>Prioridade na resposta (12h)</li>
                             <li>Relatório completo + resumo</li>
                         </ul>
@@ -562,10 +556,10 @@
         <!-- FOOTER -->
         <footer>
             <div class="container">
-                <div class="footer-logo">Processo<span>Claro</span></div> <!-- Classe diferente -->
+                <div class="footer-logo">Processo<span>Claro</span></div>
                 <p>Seu processo explicado em linguagem simples, sem juridiquês.</p>
                 <div class="disclaimer">
-                    Processo Claro é um serviço informativo e consultivo para explicação de processos judiciais em linguagem simples. Não realizamos representação processual, não substituímos a atuação de nenhum advogado regular e não garantimos resultados ou prazos processuais. Serviço prestado mediante pagamento único por consulta.
+                    Processo Claro é um serviço informativo e consultivo para explicação de processos judiciais em linguagem simples. Não realizamos representação processual, não substituímos a atuação de um advogado regular e não garantimos resultados ou prazos processuais. Serviço prestado mediante pagamento único por consulta.
                 </div>
             </div>
         </footer>
@@ -692,17 +686,18 @@
             // Configurar links do menu para navegação suave
             document.querySelectorAll('nav a').forEach(link => {
                 link.addEventListener('click', function(e) {
-                    if (this.getAttribute('href') === '#') {
-                        return;
-                    }
                     e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
+                    const href = this.getAttribute('href');
+                    
+                    // Se for um link âncora (#), fazer scroll suave
+                    if (href && href.startsWith('#')) {
+                        const targetElement = document.querySelector(href);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
                     }
                 });
             });
